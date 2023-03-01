@@ -22,8 +22,7 @@ if a == n:
 else:
     print("Nao pertence")
 3)
-import numpy as np
-
+import json
 
 def buscarMenor(lista):
     menor = lista[0]
