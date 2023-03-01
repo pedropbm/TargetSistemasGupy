@@ -1,0 +1,106 @@
+1) Resposta = 91
+INDICE = 13 
+SOMA = 0 
+K = 0
+
+while K < INDICE:
+    K = K + 1
+    SOMA = SOMA + K
+
+print(SOMA)
+
+2)
+n = int(input())
+
+a, b = 0, 1
+
+while a < n:
+    a, b = b, a + b
+
+if a == n:
+    print("Pertence")
+else:
+    print("Nao pertence")
+3)
+import numpy as np
+
+
+def buscarMenor(lista):
+    menor = lista[0]
+    for i in lista:
+        if i < menor and i !=0:
+            menor = i
+    return menor
+
+def buscarMaior(lista):
+    maior = lista[0]
+    for i in lista:
+        if i > maior:
+            maior = i
+    return maior
+
+def media(lista):
+    contador1 = 0
+    contador2 = 0
+    for i in lista:
+        if i > 0:
+            contador1 = contador1 + i
+            contador2 = contador2 + 1
+    media = contador1 / contador2
+    return media
+
+def melhoresDias(lista,media):
+    maior = lista[0]
+    contador = 0
+    for i in lista:
+        if i > media:
+            contador = contador + 1
+    return contador
+
+data_JSON =  """
+{
+    "empresa": "Teste",
+    "faturamentoDia": [1.2, 3.9, 5.8, 7.2, 9.0, 7.2, 4.0, 6.2, 8.7, 0.0]
+}
+"""
+data_dict = json.loads(data_JSON)
+
+vetor = []
+for i in data_dict["faturamentoDia"]:
+    vetor.append(float(i))
+
+menor = buscarMenor(vetor)
+maior = buscarMaior(vetor)
+media = media(vetor)
+melhor = melhoresDias(vetor,media)
+print("Menor Faturamento =",menor)
+print("Maior Faturamento =",maior)
+print("Média =",media)
+print("Qtd dias maior que faturamento =",melhor)
+
+
+4)
+sp = float(67.83643)
+rj = float(36.67866)
+mg = float(29.22988)
+es = float(27.16548)
+outros = float(19.84953)
+total = float(sp + rj + mg + es + outros)
+print(total)
+psp = ((sp/total)*100)
+prj = ((rj/total)*100)
+pmg = ((mg/total)*100)
+pes = ((es/total)*100)
+poutros = ((outros/total)*100)
+
+print(f'Porcentagem de SP {psp:.2f}')
+print(f'Porcentagem de RJ {prj:.2f}')
+print(f'Porcentagem de MG {pmg:.2f}')
+print(f'Porcentagem de ES {pes:.2f}')
+print(f'Porcentagem de Outros {poutros:.2f}')
+
+5)
+def stringinvert(palavra):
+    return palavra[::-1]
+
+print(stringinvert('TesteDeInversaoDeString'))
